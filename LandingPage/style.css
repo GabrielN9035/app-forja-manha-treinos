@@ -6,6 +6,10 @@
     scroll-behavior: smooth;
 }
 
+body{
+    overflow-x: fixed;
+}
+
 nav{
     position: fixed;
     top: 0;
@@ -18,6 +22,17 @@ nav{
     justify-content: space-between;
     box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.475);
     z-index: 999;
+    animation: fromTop 2s ease-in-out;
+}
+
+@keyframes fromTop {
+    0%{
+        transform: translateY(-70px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+    
 }
 
 .wrap-img{
@@ -67,10 +82,34 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: fromLeft 2s ease-in-out;
+}
+
+@keyframes fromLeft {
+    0%{
+        transform: translateX(-100px) ;
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
 
 .right{
     width: 350px;
+    animation: fromRight 500ms ease-in-out;
+}
+
+@keyframes fromRight {
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
 
 .wrap-banner{
@@ -105,11 +144,40 @@ nav{
 #s2{
     min-height: 100vh;
     padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4vh;
 }
 
-#s3{
-    min-height: 100vh;
-    padding-top: 80px;
+.wrap-cards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card{
+    width: 230px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card img{
+    margin-bottom: 20px;
+    transition: all 200ms linear;
+}
+
+.card:hover img{
+    transform: scale(1.2);
+    box-shadow: 0px 3px 20px black;
 }
 
 #s4{
@@ -147,5 +215,17 @@ nav{
     .wrap-banner{
         width: 250px;
         height: 250px;
+    }
+    #s3{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+    }
+    #s3 iframe{
+    width: 768px;
+    height: 440px;
     }
 }
